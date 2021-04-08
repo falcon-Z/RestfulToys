@@ -6,11 +6,20 @@ This is an experimental project to test Django Rest Framework. This application 
 
 | HTTP verb | Scope              | url        | Semantics                                                                               |
 | --------- | ------------------ | ---------- | --------------------------------------------------------------------------------------- |
-| GET       | Toy                | /toys/<id> | Retrieve a single toy                                                                   |
+| GET       | Toy                | /toys/`:id` | Retrieve a single toy                                                                   |
 | GET       | Collection of toys | /toys/     | Retrieve all the stored toys in the collection, sorted by their name in ascending order |
 | POST      | Collection of toys | /toys/     | Create a new toy in the collection                                                      |
-| PUT       | Toy                | /toys/<id> | Update an existing toy                                                                  |
-| DELETE    | Toy                | /toys<id>  | Delete an existing toy                                                                  |
+| PUT       | Toy                | /toys/`:id` | Update an existing toy                                                                  |
+| DELETE    | Toy                | /toys/`:id`  | Delete an existing toy                                                                  |
+
+* Requests to the URL `/toys/` accepts `GET` and `POST` methods for a collection of data
+* Requests to the URL `/toys/:id` (Where `:id` is the id of the object) retreives, Updates or Deletes a specific object base on the method used. 
+* `POST`, `PUT` requests accepts data as
+   * `application/JSON`
+   * `application/x-www-form-urlencoded`
+   * `multipart/form-data`
+
+API requests can be made directly through any tools like `Postman`, `Curl` or Directly via web browser which supports `Browsable API` as HTML response or `JSON`.
 
 ## The Database Model
 
